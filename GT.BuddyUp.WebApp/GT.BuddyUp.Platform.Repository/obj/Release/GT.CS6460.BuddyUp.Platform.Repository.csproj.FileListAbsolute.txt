@@ -1,0 +1,13 @@
+C:\Saurav\GT\6460 - Educational Technology\Final Project\REPO\6460BuddyUp\GT.CS6460.BuddyUp.WebApi\GT.CS6460.BuddyUp.Platform.Repository\bin\Release\GT.CS6460.BuddyUp.Platform.Repository.dll.config
+C:\Saurav\GT\6460 - Educational Technology\Final Project\REPO\6460BuddyUp\GT.CS6460.BuddyUp.WebApi\GT.CS6460.BuddyUp.Platform.Repository\bin\Release\GT.CS6460.BuddyUp.Platform.Repository.dll
+C:\Saurav\GT\6460 - Educational Technology\Final Project\REPO\6460BuddyUp\GT.CS6460.BuddyUp.WebApi\GT.CS6460.BuddyUp.Platform.Repository\bin\Release\GT.CS6460.BuddyUp.Platform.Repository.pdb
+C:\Saurav\GT\6460 - Educational Technology\Final Project\REPO\6460BuddyUp\GT.CS6460.BuddyUp.WebApi\GT.CS6460.BuddyUp.Platform.Repository\bin\Release\EntityFramework.dll
+C:\Saurav\GT\6460 - Educational Technology\Final Project\REPO\6460BuddyUp\GT.CS6460.BuddyUp.WebApi\GT.CS6460.BuddyUp.Platform.Repository\bin\Release\EntityFramework.SqlServer.dll
+C:\Saurav\GT\6460 - Educational Technology\Final Project\REPO\6460BuddyUp\GT.CS6460.BuddyUp.WebApi\GT.CS6460.BuddyUp.Platform.Repository\bin\Release\GT.CS6460.BuddyUp.EntityModel.dll
+C:\Saurav\GT\6460 - Educational Technology\Final Project\REPO\6460BuddyUp\GT.CS6460.BuddyUp.WebApi\GT.CS6460.BuddyUp.Platform.Repository\bin\Release\System.Linq.Dynamic.dll
+C:\Saurav\GT\6460 - Educational Technology\Final Project\REPO\6460BuddyUp\GT.CS6460.BuddyUp.WebApi\GT.CS6460.BuddyUp.Platform.Repository\bin\Release\GT.CS6460.BuddyUp.EntityModel.pdb
+C:\Saurav\GT\6460 - Educational Technology\Final Project\REPO\6460BuddyUp\GT.CS6460.BuddyUp.WebApi\GT.CS6460.BuddyUp.Platform.Repository\bin\Release\EntityFramework.xml
+C:\Saurav\GT\6460 - Educational Technology\Final Project\REPO\6460BuddyUp\GT.CS6460.BuddyUp.WebApi\GT.CS6460.BuddyUp.Platform.Repository\bin\Release\EntityFramework.SqlServer.xml
+C:\Saurav\GT\6460 - Educational Technology\Final Project\REPO\6460BuddyUp\GT.CS6460.BuddyUp.WebApi\GT.CS6460.BuddyUp.Platform.Repository\obj\Release\GT.CS6460.BuddyUp.Platform.Repository.csprojResolveAssemblyReference.cache
+C:\Saurav\GT\6460 - Educational Technology\Final Project\REPO\6460BuddyUp\GT.CS6460.BuddyUp.WebApi\GT.CS6460.BuddyUp.Platform.Repository\obj\Release\GT.CS6460.BuddyUp.Platform.Repository.dll
+C:\Saurav\GT\6460 - Educational Technology\Final Project\REPO\6460BuddyUp\GT.CS6460.BuddyUp.WebApi\GT.CS6460.BuddyUp.Platform.Repository\obj\Release\GT.CS6460.BuddyUp.Platform.Repository.pdb

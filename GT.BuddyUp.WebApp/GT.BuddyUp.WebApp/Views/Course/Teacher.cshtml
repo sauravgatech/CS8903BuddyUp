@@ -1,0 +1,30 @@
+﻿@model GT.BuddyUp.WebApp.Models.TeacherDashboardModel
+@{
+    ViewBag.Title = "Teacher";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3>Hello @User.Identity.Name</h3>
+    <div class="row">
+        <div class="col-md-12">
+            <h4>Below are the courses you can view/edit:</h4>
+            @foreach (var course in Model.Courses)
+            {
+                <div class="col-md-10">
+                    <h4>@Html.ActionLink(course.Key, "CourseTeacher", "Course", new { courseId = course.Key }, null) - @course.Value </h4>
+                    @if (Model.CourseDescription.Keys.Contains(course.Key))
+                    {
+                        <p>
+                            @Model.CourseDescription[course.Key]                        
+                        </p>
+                    }
+                </div>
+                <hr />
+            }
+            <div class="col-md-10">
+                <input type="button" class="btn btn-info pull-right" value="Create A Course" onclick="@("window.location.href='" + @Url.Action("Create", "Course") + "'");" />
+                
+            </div>
+            </div>
+        </div>
+

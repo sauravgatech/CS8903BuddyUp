@@ -1,0 +1,51 @@
+﻿@model GT.BuddyUp.WebApp.Models.ModifyGroupsModel
+@{
+    ViewBag.Title = "Modify Groups";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Modify Groups for @Model.courseCode - @Model.courseName</h2>
+<div class="row">
+    <div class="col-md-12">
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(m => m.courseDescription)
+            </dt>
+            <dd>
+                @Model.courseDescription
+            </dd>
+        </dl>
+    </div>
+</div>
+<hr />
+<h3>Groups</h3>
+<hr />
+<div class="row">
+    <div class="col-md-12">
+        <section id="studentCourseForm">
+            @using (Html.BeginForm("Modify", "Course", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                @Html.HiddenFor(m => m.courseCode)
+                @Html.HiddenFor(m => m.courseName)
+                @Html.HiddenFor(m => m.courseDescription)
+                foreach (var userAndGrp in Model.UserAndGroups)
+                {
+                    <div class="form-group">
+                        @{ Html.RenderPartial("_GroupUser", userAndGrp); }
+                    </div>
+                            }
+                            <div class="form-group">
+                                <div class="col-md-offset-2 col-md-10">
+                                    <input type="submit" value="Update" class="btn btn-info" />
+                                </div>
+                            </div>
+                            }
+        </section>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-10">
+        <input type="button" class="btn btn-info pull-right" value="Go Back" onclick="@("window.location.href='" + @Url.Action("CourseTeacher", "Course", new { courseCode = Model.courseCode }) + "'");" />
+
+    </div>
+</div>

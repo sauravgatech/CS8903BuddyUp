@@ -1,0 +1,8 @@
+﻿@{
+    ViewBag.Title = "Unregistered User";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Hello @ViewBag.User</h2>
+<h4>There is no course added to the system. Please @Html.ActionLink("create a course", "Create", "Course", routeValues: null, htmlAttributes: new { id = "courseCreateLink" }) to start. </h4>
+

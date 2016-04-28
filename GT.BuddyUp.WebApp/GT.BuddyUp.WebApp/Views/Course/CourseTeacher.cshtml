@@ -1,0 +1,281 @@
+﻿@model GT.BuddyUp.WebApp.Models.DisplayCourseModel
+@{
+    ViewBag.Title = "CourseTeacher";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@Model.CourseCode - @Model.CourseName</h2>
+<div class="row">
+    <div class="col-md-12">
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(m => m.CourseDescription)
+            </dt>
+            <dd>
+                @Model.CourseDescription
+            </dd>
+        </dl>
+    </div>
+</div>
+<hr />
+<div class="row">
+    <div class="col-md-12">
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(m => m.GroupType)
+            </dt>
+            <dd>
+                @Model.GroupType
+            </dd>
+            <br />
+            <dt>
+                @Html.DisplayNameFor(m => m.GroupSize)
+            </dt>
+            <dd>
+                @Model.GroupSize
+            </dd>
+            <br />
+            <dt>
+                @Html.DisplayNameFor(m => m.DesiredSkillSets)
+            </dt>
+            <dd>
+                @Model.DesiredSkillSets
+            </dd>
+            <br />
+            <dt>
+                @Html.DisplayNameFor(m => m.PreferSimiliarSkillSet)
+            </dt>
+            <dd>
+                @if(Model.PreferSimiliarSkillSet)
+                {
+                       <span>True</span>
+                }
+                else
+                { 
+                    <span>False</span>
+                }
+            </dd>
+        </dl>
+    </div>    
+</div>
+<hr />
+<div class="row">
+    <div class="col-md-12">
+        <h4>Course Teachers</h4>
+        <dl class="dl-horizontal">
+            @foreach (var user in Model.Users)
+            {
+                if(user.role.Equals("Teacher", StringComparison.OrdinalIgnoreCase))
+                { 
+                    <dt>
+                        @user.name
+                    </dt>
+                    <dd>
+                        @user.emailId
+                    </dd>
+                    <dd>
+                        @user.role
+                    </dd>
+                    <br />
+                }
+            }
+        </dl>
+    </div>
+</div>
+<hr />
+<div class="row">
+    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#questionnaire">
+        <span class="glyphicon glyphicon-grain" aria-hidden="true"></span>View Questionnaire
+    </button>
+    <div id="questionnaire" class="collapse">
+        <div class="col-md-12">
+            <dl class="dl-horizontal">
+                @foreach (var question in Model.Questions)
+                {
+                    <dt>
+                        @question.QuestionText
+                    </dt>
+                    <dd>
+                        @Html.DropDownList("ddl", new SelectList(question.AnswerChoices))
+                    </dd>
+                    <br />
+                }
+            </dl>
+        </div>
+    </div>
+</div>
+<hr />
+<div class="row">
+    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#users">
+        <span class="glyphicon glyphicon-grain" aria-hidden="true"></span>View All Users
+    </button>
+    <div id="users" class="collapse">
+        <div class="col-md-12">
+            <h4>This view shows the list of all the users, who are registered to the course.</h4>
+            <dl class="dl-horizontal">
+                @foreach(var user in Model.Users)
+                {
+                    <dt>
+                        @user.name
+                    </dt>
+                    <dd>
+                        @user.emailId
+                    </dd>
+                    <dd>
+                        @user.role
+                    </dd>
+                    <br />
+                }
+            </dl>
+        </div>
+    </div>
+</div>
+<hr />
+<div class="row">
+    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#roaster">
+        <span class="glyphicon glyphicon-grain" aria-hidden="true"></span>View Course Roaster
+    </button>
+    <div id="roaster" class="collapse">
+        <div class="col-md-12">
+            <h4>This view shows the list of all the gtIds, who are permitted to register for the course.</h4>
+            @if (Model.Roaster == null || Model.Roaster.Count == 0)
+            {
+                <h4>This roaster is empty. Please add GTIDs to the roaster.</h4>
+            }
+            else
+            {
+                <dl class="dl-horizontal">
+                    @foreach (var gtid in Model.Roaster)
+                    {
+                        <dt>
+                            @gtid
+                        </dt>
+                        <br />
+                    }
+                </dl>
+            }   
+        </div>
+        <input type="button" class="btn btn-info" value="Modify Roaster" onclick="@("window.location.href='" + @Url.Action("ModifyRoaster", "Course", new { courseCode = Model.CourseCode }) + "'");" />
+    </div>
+</div>
+<hr />
+<div class="row">
+    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#groups">
+        <span class="glyphicon glyphicon-grain" aria-hidden="true"></span>View All Groups
+    </button>
+    <div id="groups" class="collapse">
+        @if(Model.Groups == null || Model.Groups.Count == 0)
+        {
+           <h4>There are no groups in this course yet.</h4>
+        }
+        else
+        {
+            int indexSize = Model.Groups.Count;
+            for(int i =0; i< indexSize; i++)
+            {
+                string divName = "groupMember" + i.ToString();
+                string dataTarget = "#" + "groupMember" + i.ToString();
+                string backGroundColor = "";
+                   if (Model.Groups.ElementAt(i).GroupMembers.Count < Model.GroupSize)
+                   {
+                       backGroundColor = "lightyellow";
+                       
+                   }
+                   else if(Model.Groups.ElementAt(i).GroupMembers.Count > Model.GroupSize)
+                   {
+                       backGroundColor = "lightpink";
+                   }
+                    else
+                   {
+                       backGroundColor = "lightgreen";
+                   }
+                       
+                    <div class="row" style="background-color: @backGroundColor">
+                        <div class="col-lg-2">
+                            @Html.ActionLink(@Model.Groups.ElementAt(i).GroupName, "GroupDetail", "Group", new { groupCode = Model.Groups.ElementAt(i).GroupCode }, null)
+                        </div>
+                        <div class="col-lg-2">
+                            <span><i>@Model.Groups.ElementAt(i).TimeZone</i></span>
+                        </div>
+                        <div class="col-lg-5">
+                            @Model.Groups.ElementAt(i).Objective
+                        </div>
+                        <div class="col-lg-3">
+                            <button type="button" class="btn btn-info" data-toggle="collapse" data-target=@dataTarget>
+                                <span class="glyphicon glyphicon-grain" aria-hidden="true"></span>View Group Members
+                            </button>
+                            <div id=@divName class="collapse">
+                                @foreach (var member in Model.Groups.ElementAt(i).GroupMembers)
+                                {
+                                    <dt>
+                                        @member.name
+                                    </dt>
+                                    <dd>
+                                        @member.emailId
+                                    </dd>
+                                    <dd>
+                                        @member.role
+                                    </dd>
+                                    <br />
+                                }
+                            </div>
+                        </div>
+                    </div>
+            }
+@*int indexSize = Model.Groups.Count;
+                        for (int i = 0; i < indexSize; i = i + 3)
+                        {
+                            <div class="row">
+                                @if (i < indexSize)
+                                {
+                                    <div class="col-lg-4">
+                                        <h4>@Model.Groups.ElementAt(i).GroupName</h4>
+                                        <br />
+                                        <span><i>@Model.Groups.ElementAt(i).TimeZone</i></span>
+                                        <br />
+                                        <span>@Model.Groups.ElementAt(i).Objective</span>
+                                        <button type="button" class="btn btn-info pull-right" onclick="@("window.location.href='" + @Url.Action("GroupDetail", "Group", new { groupCode = Model.Groups.ElementAt(i).GroupCode }) + "'") ;"><span class="glyphicon glyphicon-eye-open"></span>  View Group</button>
+                                    </div>
+                                }
+                                @if (i + 1 < indexSize)
+                                {
+                                    <div class="col-lg-4">
+                                        <h4>@Model.Groups.ElementAt(i + 1).GroupName</h4>
+                                        <br />
+                                        <span><i>@Model.Groups.ElementAt(i + 1).TimeZone</i></span>
+                                        <br />
+                                        <span>@Model.Groups.ElementAt(i + 1).Objective</span>
+                                        <button type="button" class="btn btn-info pull-right" onclick="@("window.location.href='" + @Url.Action("GroupDetail", "Group", new { groupCode = Model.Groups.ElementAt(i + 1).GroupCode }) + "'") ;"><span class="glyphicon glyphicon-eye-open"></span>  View Group</button>
+                                    </div>
+                                }
+                                @if (i + 2 < indexSize)
+                                {
+                                    <div class="col-lg-4">
+                                        <h4>@Model.Groups.ElementAt(i + 2).GroupName</h4>
+                                        <br />
+                                        <span><i>@Model.Groups.ElementAt(i + 2).TimeZone</i></span>
+                                        <br />
+                                        <span>@Model.Groups.ElementAt(i + 2).Objective</span>
+                                        <button type="button" class="btn btn-info pull-right" onclick="@("window.location.href='" + @Url.Action("GroupDetail", "Group", new { groupCode = Model.Groups.ElementAt(i + 2).GroupCode }) + "'") ;"><span class="glyphicon glyphicon-eye-open"></span>  View Group</button>
+                                    </div>
+                                }
+                                </div>
+                            <hr />
+                        }*@
+                <div class="row">
+                    <div class="col-md-10">
+                        <input type="button" class="btn btn-info" value="Modify Groups" onclick="@("window.location.href='" + @Url.Action("Modify", "Course", new { courseCode = Model.CourseCode }) + "'");" />
+
+                    </div>
+                </div>
+        }
+                </div>
+</div>
+<br />
+<br />
+<div class="row">
+    <div class="col-md-10">
+        <input type="button" class="btn btn-info pull-right" value="Go Back" onclick="@("window.location.href='" + @Url.Action("Teacher", "Course") + "'");" />
+
+    </div>
+</div>

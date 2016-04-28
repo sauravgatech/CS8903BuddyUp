@@ -1,0 +1,8 @@
+﻿@model IEnumerable<GT.BuddyUp.WebApp.Models.CourseUser>
+<div id="editorRows">
+    @foreach (var item in Model)
+    {
+        Html.RenderPartial("_CourseUsers", item);
+    }
+</div>
+@Html.ActionLink("Add another user", "BlankEditorRow", null, new { id = "addItem" })

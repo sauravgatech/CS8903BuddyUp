@@ -1,0 +1,66 @@
+﻿@model GT.BuddyUp.WebApp.Models.GroupCreateModel
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Hello @User.Identity.Name</h2>
+<h4>Please fill the below form to create a group.</h4>
+<div class="row">
+    <div class="col-md-12">
+        <section id="createGroupForm">
+            @using (Html.BeginForm("Create", "Group", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(m => m.CourseCode, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.CourseCode, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.CourseCode, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.GroupName, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.GroupName, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.GroupName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Objective, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextAreaFor(m => m.Objective, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Objective, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.GroupTypeCode, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.GroupTypeCode, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.GroupTypeCode, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.MaxNumberOfUsers, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.MaxNumberOfUsers, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.MaxNumberOfUsers, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.TimeZone, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.DropDownListFor(m => m.TimeZone, new SelectList(Model.timeZones))
+                        @Html.ValidationMessageFor(m => m.TimeZone, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Create Group" class="btn btn-info" />
+                    </div>
+                </div>
+            }
+            </section>
+        </div>
+    </div>

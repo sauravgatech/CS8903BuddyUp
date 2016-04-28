@@ -1,0 +1,221 @@
+﻿@model GT.BuddyUp.WebApp.Models.GroupDetailModel
+
+@{
+    ViewBag.Title = "Group";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@Html.DisplayFor(model => model.GroupName)</h2>
+<div class="row">
+    <div class="col-lg-12">
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Objective)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Objective)
+            </dd>
+        </dl>
+    </div>
+</div>
+<div class="row">
+    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">
+        <span class="glyphicon glyphicon-menu-down"></span>  View Group Details</button>
+    <div id="demo" class="collapse in">
+        <div class="col-md-12">
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.GroupTypeCode)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.GroupTypeCode)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.TimeZone)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.TimeZone)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.CourseCode)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.CourseCode)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.UserList)
+                </dt>
+                <dd>
+                    @foreach (var user in Model.UserList)
+                    {
+                        <li>@user.name (@user.emailId)</li>
+                    }
+                </dd>
+            </dl>
+        </div>
+    </div>
+</div>
+<br />
+<div class="container">
+    <div class="row">
+        <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#communications">
+            <span class="glyphicon glyphicon-menu-down"></span>  View Group Communications
+        </button>
+        <div id="communications" class="collapse">
+            <div class="col-md-12">
+                <h2 class="page-header">Group Discussions</h2>
+                <section class="comment-list">
+                    @{
+                        if (Model.GroupPosts == null || Model.GroupPosts.Count == 0)
+                        {
+                            <span>There are no group discussions for this group. </span>
+                        }
+                        else
+                        {
+                            for (int i = 0; i < Model.GroupPosts.Count; i = i + 2)
+                            {
+                                <br />
+                                if (i < Model.GroupPosts.Count)
+                                {
+                                    var post = Model.GroupPosts.ElementAt(i);
+                                    <article class="row">
+                                        <div class="col-md-2 col-sm-2 hidden-xs">
+                                            <figure class="thumbnail">
+                                                <img class="img-responsive" src="http://www.keita-gaming.com/assets/profile/default-avatar-c5d8ec086224cb6fc4e395f4ba3018c2.jpg" />
+                                                <figcaption class="text-center"><b>@post.UserName</b></figcaption>
+                                            </figure>
+                                        </div>
+                                        <div class="col-md-10 col-sm-10">
+                                            <div class="panel panel-default arrow left">
+                                                <div class="panel-body">
+                                                    <header class="text-left">
+                                                        <div class="comment-user"><i class="fa fa-user"></i> <b>@post.UserName</b></div>
+                                                        <time class="comment-date" datetime="12-10-2015 01:05"><i class="fa fa-clock-o">@post.TimePosted.ToString("MM-dd-yyyy H:mm:ss")</i></time>
+                                                    </header>
+                                                    <div class="comment-post">
+                                                        <p>
+                                                            @post.PostText
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </article>
+                                }
+                                <br />
+                                if (i + 1 < Model.GroupPosts.Count)
+                                {
+                                    var post = Model.GroupPosts.ElementAt(i + 1);
+                                    <article class="row">
+                                        <div class="col-md-10 col-sm-10">
+                                            <div class="panel panel-default arrow right">
+                                                <div class="panel-body">
+                                                    <header class="text-right">
+                                                        <div class="comment-user"><i class="fa fa-user"></i> <b>@post.UserName</b></div>
+                                                        <time class="comment-date" datetime="12-10-2015 01:05"><i class="fa fa-clock-o">@post.TimePosted.ToString("MM-dd-yyyy H:mm:ss")</i></time>
+                                                    </header>
+                                                    <div class="comment-post">
+                                                        <p>
+                                                            @post.PostText
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2 col-sm-2 hidden-xs">
+                                            <figure class="thumbnail">
+                                                <img class="img-responsive" src="http://www.keita-gaming.com/assets/profile/default-avatar-c5d8ec086224cb6fc4e395f4ba3018c2.jpg" />
+                                                <figcaption class="text-center"><b>@post.UserName</b></figcaption>
+                                            </figure>
+                                        </div>
+                                    </article>
+                                }
+
+                            }
+                        }
+                    }
+
+                </section>
+            </div>
+            <br />
+            <button type="button" id="postCreate" class="btn btn-default pull-right"><span class="glyphicon glyphicon-leaf"></span>  Create New Post</button>
+        </div>
+    </div>
+    <div id="postdialog" title="Add Post" style="overflow: hidden;background-color:Yellow; border-bottom-width:5;background-color:Red"></div>    
+    <br />
+    <br />
+    <br />
+    <br />
+    @if(!User.IsInRole("Teacher"))
+    { 
+        if (Model.UserList.Select(x => x.emailId).Contains(User.Identity.Name))
+        {
+            <button type="button" class="btn btn-info pull-right" onclick="@("window.location.href='" + @Url.Action("LeaveGroup", "Group", new { groupCode = Model.GroupCode, courseCode = Model.CourseCode }) + "'") ;"><span class="glyphicon glyphicon-remove-circle"></span>  Leave Group</button>
+        }
+        else
+        {
+            <button type="button" class="btn btn-info pull-right" onclick="@("window.location.href='" + @Url.Action("JoinGroup", "Group", new { groupCode = Model.GroupCode, courseCode = Model.CourseCode }) + "'") ;"><span class="glyphicon glyphicon-ok-circle"></span> Join Group</button>
+        }
+        <button type="button" class="btn btn-info" onclick="@("window.location.href='" + @Url.Action("GroupSummary", "Group", new { courseCode = Model.CourseCode }) + "'") ;"><span class="glyphicon glyphicon-backward"></span>  Back to Group Summary</button>
+    }
+    else
+    {
+        <button type="button" class="btn btn-info" onclick="@("window.location.href='" + @Url.Action("CourseTeacher", "Course", new { courseId = Model.CourseCode }) + "'") ;"><span class="glyphicon glyphicon-backward"></span>  Back to Course Summary</button>
+    }
+    
+</div>
+@section Scripts{
+    @Scripts.Render("~/bundles/jqueryui")
+        <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+        <script src="http://code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
+        <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css" />
+        <script type="text/javascript" language="javascript">
+        
+ 
+        
+            $(document).ready(function () {
+
+
+                $("#postCreate").click(function () {
+                    InitializeDialog($("#postdialog"));
+
+                    $("#postdialog").dialog("open");
+                });
+
+
+
+                //Method to Initialize the DialogBox
+                function InitializeDialog($element) {
+
+
+                    $element.dialog({
+                        autoOpen: false,
+                        width: 800,
+                        background : 'white',
+                        resizable: true,
+                        draggable: true,
+                        title: "New Post",
+                        model: true,
+                        show: 'slide',
+                        closeText: 'x',
+                        dialogClass: 'info',
+                        closeOnEscape: true,
+                        open: function (event, ui) {
+                            //Load the Partial View Here using Controller and Action
+                            $element.load('/Group/NewPost');
+                        },
+
+                        close: function () {
+                            $(this).dialog('close');
+                        }
+
+                    });
+
+                }
+            });
+        </script>
+    }

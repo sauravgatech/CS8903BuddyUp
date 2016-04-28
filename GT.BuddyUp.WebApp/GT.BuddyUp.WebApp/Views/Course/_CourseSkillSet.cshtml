@@ -1,0 +1,8 @@
+﻿@model IEnumerable<GT.BuddyUp.WebApp.Models.Skill>
+<div id="skillRows">
+    @foreach (var skill in Model)
+    {
+        @Html.Partial("_CourseSkill", skill)
+    }
+</div>
+    @Html.ActionLink("Add another skill", "BlankSkillRow", null, new { id = "addSkill" })

@@ -1,0 +1,693 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GT.CS6460.BuddyUp.DomainDto</name>
+    </assembly>
+    <members>
+        <member name="T:GT.CS6460.BuddyUp.DomainDto.AuthenticationRequest">
+            <summary>
+            Authrntication Request
+            </summary>
+        </member>
+        <member name="P:GT.CS6460.BuddyUp.DomainDto.AuthenticationRequest.email">
+            <summary>
+            Email Id of the user
+            </summary>
+        </member>
+        <member name="P:GT.CS6460.BuddyUp.DomainDto.AuthenticationRequest.password">
+            <summary>
+            Plain text password of the user
+            </summary>
+        </member>
+        <member name="T:GT.CS6460.BuddyUp.DomainDto.CourseAddRequest">
+            <summary>
+            Course Add Request
+            </summary>
+        </member>
+        <member name="P:GT.CS6460.BuddyUp.DomainDto.CourseAddRequest.CourseCode">
+            <summary>
+            Course Code
+            </summary>
+        </member>
+        <member name="P:GT.CS6460.BuddyUp.DomainDto.CourseAddRequest.CourseName">
+            <summary>
+            Name of Course
+            </summary>
+        </member>
+        <member name="P:GT.CS6460.BuddyUp.DomainDto.CourseAddRequest.CourseDescription">
+            <summary>
+            Course Description
+            </summary>
+        </member>
+        <member name="P:GT.CS6460.BuddyUp.DomainDto.CourseAddRequest.GroupType">
+            <summary>
+            Group Type
+            </summary>
+        </member>
+        <member name="P:GT.CS6460.BuddyUp.DomainDto.CourseAddRequest.GroupSize">
+            <summary>
+            Group Size
+            </summary>
+        </member>
+        <member name="P:GT.CS6460.BuddyUp.DomainDto.CourseAddRequest.DesiredSkillSets">
+            <summary>
+            Comma Separated Skill Sets
+            </summary>
+        </member>
+        <member name="P:GT.CS6460.BuddyUp.DomainDto.CourseAddRequest.PreferSimiliarSkillSet">
+            <summary>
+            For group formation if similar skill sets should group together
+            </summary>
+        </member>
+        <member name="P:GT.CS6460.BuddyUp.DomainDto.CourseAddRequest.userList">
+            <summary>
+            Initial Set of User; List of email id
+            </summary>
+        </member>
+        <member name="T:GT.CS6460.BuddyUp.DomainDto.CourseNewUser">
+            <summary>
+            Users for the new Course
+            </summary>
+        </member>
+        <member name="P:GT.CS6460.BuddyUp.DomainDto.CourseNewUser.emailId">
+            <summary>
+            Users Email Id
+            </summary>
+        </member>
+        <member name="P:GT.CS6460.BuddyUp.DomainDto.CourseNewUser.roleCode">
+            <summary>
+            User Role in the course
+            </summary>
+        </member>
+        <member name="T:GT.CS6460.BuddyUp.DomainDto.CourseGetResponse">
+            <summary>
+            Course Get Response
+            </summary>
+        </member>
+        <member name="P:GT.CS6460.BuddyUp.DomainDto.CourseGetResponse.CourseCode">
+            <summary>
+            Course Code
+            </summary>
+        </member>
+        <member name="P:GT.CS6460.BuddyUp.DomainDto.CourseGetResponse.CourseName">
+            <summary>
+            Course Name
+            </summary>
+        </member>
+        <member name="P:GT.CS6460.BuddyUp.DomainDto.CourseGetResponse.CourseDescription">
+            <summary>
+            Course Description
+            </summary>
+        </member>
+        <member name="P:GT.CS6460.BuddyUp.DomainDto.CourseGetResponse.GroupType">
+            <summary>
+            Group Type
+            </summary>
+        </member>
+        <member name="P:GT.CS6460.BuddyUp.DomainDto.CourseGetResponse.GroupSize">
+            <summary>
+            Group Size
+            </summary>
+        </member>
+        <member name="P:GT.CS6460.BuddyUp.DomainDto.CourseGetResponse.DesiredSkillSets">
+            <summary>
+            Comma Separated Skill Sets
+            </summary>
+        </member>
+        <member name="P:GT.CS6460.BuddyUp.DomainDto.CourseGetResponse.PreferSimiliarSkillSet">
+            <summary>
+            For group formation if similar skill sets should group together
+            </summary>
+        </member>
+        <member name="P:GT.CS6460.BuddyUp.DomainDto.CourseGetResponse.QuestionnaireCode">
+            <summary>
+            Questionnaire
+            </summary>
+        </member>
+        <member name="P:GT.CS6460.BuddyUp.DomainDto.CourseGetResponse.UserList">
+            <summary>
+            List of users
+            </summary>
+        </member>
+        <member name="T:GT.CS6460.BuddyUp.DomainDto.CourseUpdateRequest">
+            <summary>
+            Course update request
+            </summary>
+        </member>
+        <member name="P:GT.CS6460.BuddyUp.DomainDto.CourseUpdateRequest.CourseCode">
+            <summary>
+            Course Code
+            </summary>
+        </member>
+        <member name="P:GT.CS6460.BuddyUp.DomainDto.CourseUpdateRequest.CourseName">
+            <summary>
+            Course Name
+            </summary>
+        </member>
+        <member name="P:GT.CS6460.BuddyUp.DomainDto.CourseUpdateRequest.CourseDescription">
+            <summary>
+            Course Description
+            </summary>
+        </member>
+        <member name="P:GT.CS6460.BuddyUp.DomainDto.CourseUpdateRequest.QuestionnaireCode">
+            <summary>
+            Questionnaire Code
+            </summary>
+        </member>
+        <member name="P:GT.CS6460.BuddyUp.DomainDto.CourseUpdateRequest.GroupType">
+            <summary>
+            Group Type
+            </summary>
+        </member>
+        <member name="P:GT.CS6460.BuddyUp.DomainDto.CourseUpdateRequest.GroupSize">
+            <summary>
+            Group Size
+            </summary>
+        </member>
+        <member name="P:GT.CS6460.BuddyUp.DomainDto.CourseUpdateRequest.DesiredSkillSets">
+            <summary>
+            Comma Separated Skill Sets
+            </summary>
+        </member>
+        <member name="P:GT.CS6460.BuddyUp.DomainDto.CourseUpdateRequest.PreferSimiliarSkillSet">
+            <summary>
+            For group formation if similar skill sets should group together
+            </summary>
+        </member>
+        <member name="P:GT.CS6460.BuddyUp.DomainDto.CourseUpdateRequest.CourseNewUsers">
+            <summary>
+            List of new users to be added
+            </summary>
+        </member>
+        <member name="P:GT.CS6460.BuddyUp.DomainDto.CourseUpdateRequest.CourseDeleteUsers">
+            <summary>
+            List of users to be removed
+            </summary>
+        </member>
+        <member name="P:GT.CS6460.BuddyUp.DomainDto.CourseUpdateUser.emailId">
+            <summary>
+            Users Email Id
+            </summary>
+        </member>
+        <member name="P:GT.CS6460.BuddyUp.DomainDto.CourseUpdateUser.roleCode">
+            <summary>
+            User Role in the course
+            </summary>
+        </member>
+        <member name="T:GT.CS6460.BuddyUp.DomainDto.CourseUserUpdateRequest">
+            <summary>
+            Course User Add Request
+            </summary>
+        </member>
+        <member name="P:GT.CS6460.BuddyUp.DomainDto.CourseUserUpdateRequest.courseCode">
+            <summary>
+            Course Code
+            </summary>
+        </member>
+        <member name="P:GT.CS6460.BuddyUp.DomainDto.CourseUserUpdateRequest.email">
+            <summary>
+            Email Id
+            </summary>
+        </member>
+        <member name="P:GT.CS6460.BuddyUp.DomainDto.CourseUserUpdateRequest.RoleCode">
+            <summary>
+            Role Code
+            </summary>
+        </member>
+        <member name="P:GT.CS6460.BuddyUp.DomainDto.CourseUserUpdateRequest.answerSet">
+            <summary>
+            Answer Set
+            </summary>
+        </member>
+        <member name="P:GT.CS6460.BuddyUp.DomainDto.CourseUserUpdateRequest.GroupCode">
+            <summary>
+            Group Code
+            </summary>
+        </member>
+        <member name="P:GT.CS6460.BuddyUp.DomainDto.GroupAddRequest.GroupCode">
+            <summary>
+            Group Code
+            </summary>
+        </member>
+        <member name="P:GT.CS6460.BuddyUp.DomainDto.GroupAddRequest.GroupName">
+            <summary>
+            Name of Group
+            </summary>
+        </member>
+        <member name="P:GT.CS6460.BuddyUp.DomainDto.GroupAddRequest.GroupTypeCode">
+            <summary>
+            Group Type Code
+            </summary>
+        </member>
+        <member name="P:GT.CS6460.BuddyUp.DomainDto.GroupAddRequest.Objective">
+            <summary>
+            Group Objective
+            </summary>
+        </member>
+        <member name="P:GT.CS6460.BuddyUp.DomainDto.GroupAddRequest.TimeZone">
+            <summary>
+            Timezone in which group would be most active
+            </summary>
+        </member>
+        <member name="P:GT.CS6460.BuddyUp.DomainDto.GroupAddRequest.CourseCode">
+            <summary>
+            Course in which group exist
+            </summary>
+        </member>
+        <member name="P:GT.CS6460.BuddyUp.DomainDto.GroupAddRequest.userList">
+            <summary>
+            List of users of group
+            </summary>
+        </member>
+        <member name="P:GT.CS6460.BuddyUp.DomainDto.GroupGetResponse.GroupCode">
+            <summary>
+            Group Code
+            </summary>
+        </member>
+        <member name="P:GT.CS6460.BuddyUp.DomainDto.GroupGetResponse.GroupName">
+            <summary>
+            Name of Group
+            </summary>
+        </member>
+        <member name="P:GT.CS6460.BuddyUp.DomainDto.GroupGetResponse.GroupTypeCode">
+            <summary>
+            Group Type Code
+            </summary>
+        </member>
+        <member name="P:GT.CS6460.BuddyUp.DomainDto.GroupGetResponse.Objective">
+            <summary>
+            Group Objective
+            </summary>
+        </member>
+        <member name="P:GT.CS6460.BuddyUp.DomainDto.GroupGetResponse.TimeZone">
+            <summary>
+            Timezone in which group would be most active
+            </summary>
+        </member>
+        <member name="P:GT.CS6460.BuddyUp.DomainDto.GroupGetResponse.CourseCode">
+            <summary>
+            Course in which group exist
+            </summary>
+        </member>
+        <member name="P:GT.CS6460.BuddyUp.DomainDto.GroupGetResponse.UserList">
+            <summary>
+            List of users of group
+            </summary>
+        </member>
+        <member name="P:GT.CS6460.BuddyUp.DomainDto.GroupGetResponse.GroupPosts">
+            <summary>
+            Posts in the Group
+            </summary>
+        </member>
+        <member name="P:GT.CS6460.BuddyUp.DomainDto.GroupSummary.GroupCode">
+            <summary>
+            Group Code
+            </summary>
+        </member>
+        <member name="P:GT.CS6460.BuddyUp.DomainDto.GroupSummary.GroupName">
+            <summary>
+            Name of Group
+            </summary>
+        </member>
+        <member name="P:GT.CS6460.BuddyUp.DomainDto.GroupSummary.activeTimeZone">
+            <summary>
+            Timezone
+            </summary>
+        </member>
+        <member name="P:GT.CS6460.BuddyUp.DomainDto.GroupSummary.Objective">
+            <summary>
+            Group Objective
+            </summary>
+        </member>
+        <member name="P:GT.CS6460.BuddyUp.DomainDto.GroupUpdateRequest.GroupCode">
+            <summary>
+            Group Code
+            </summary>
+        </member>
+        <member name="P:GT.CS6460.BuddyUp.DomainDto.GroupUpdateRequest.GroupName">
+            <summary>
+            Name of Group
+            </summary>
+        </member>
+        <member name="P:GT.CS6460.BuddyUp.DomainDto.GroupUpdateRequest.GroupTypeCode">
+            <summary>
+            Group Type Code
+            </summary>
+        </member>
+        <member name="P:GT.CS6460.BuddyUp.DomainDto.GroupUpdateRequest.Objective">
+            <summary>
+            Group Objective
+            </summary>
+        </member>
+        <member name="P:GT.CS6460.BuddyUp.DomainDto.GroupUpdateRequest.TimeZone">
+            <summary>
+            Timezone in which group would be most active
+            </summary>
+        </member>
+        <member name="P:GT.CS6460.BuddyUp.DomainDto.GroupUpdateRequest.newUserList">
+            <summary>
+            List of new users of group
+            </summary>
+        </member>
+        <member name="P:GT.CS6460.BuddyUp.DomainDto.GroupUpdateRequest.removeUserList">
+            <summary>
+            List of users to be removed from group
+            </summary>
+        </member>
+        <member name="T:GT.CS6460.BuddyUp.DomainDto.Question">
+            <summary>
+            Question Class
+            </summary>
+        </member>
+        <member name="P:GT.CS6460.BuddyUp.DomainDto.Question.questionId">
+            <summary>
+            Question Id
+            </summary>
+        </member>
+        <member name="P:GT.CS6460.BuddyUp.DomainDto.Question.questionText">
+            <summary>
+            Question Text
+            </summary>
+        </member>
+        <member name="P:GT.CS6460.BuddyUp.DomainDto.Question.questionType">
+            <summary>
+            Type of Question - MultipleChoice / FillUpTheBlank
+            </summary>
+        </member>
+        <member name="P:GT.CS6460.BuddyUp.DomainDto.Question.answerChoices">
+            <summary>
+            List of Answer Choices
+            </summary>
+        </member>
+        <member name="P:GT.CS6460.BuddyUp.DomainDto.Question.Priority">
+            <summary>
+            Question Priority
+            </summary>
+        </member>
+        <member name="T:GT.CS6460.BuddyUp.DomainDto.QuestionnaireAddRequest">
+            <summary>
+            Questionnaire
+            </summary>
+        </member>
+        <member name="P:GT.CS6460.BuddyUp.DomainDto.QuestionnaireAddRequest.QuestionnaireCode">
+            <summary>
+            Questionnaire Code
+            </summary>
+        </member>
+        <member name="P:GT.CS6460.BuddyUp.DomainDto.QuestionnaireAddRequest.QuestionIds">
+            <summary>
+            List of existing questions
+            </summary>
+        </member>
+        <member name="P:GT.CS6460.BuddyUp.DomainDto.QuestionnaireAddRequest.IsATemplate">
+            <summary>
+            If the questionnaire is a template
+            </summary>
+        </member>
+        <member name="P:GT.CS6460.BuddyUp.DomainDto.QuestionnaireAddRequest.Questions">
+            <summary>
+            List of new Questions
+            </summary>
+        </member>
+        <member name="P:GT.CS6460.BuddyUp.DomainDto.QuestionnaireUpdateRequest.QuestionnaireCode">
+            <summary>
+            Questionnaire Code
+            </summary>
+        </member>
+        <member name="P:GT.CS6460.BuddyUp.DomainDto.QuestionnaireUpdateRequest.IsATemplate">
+            <summary>
+            If the questionnaire is a template
+            </summary>
+        </member>
+        <member name="P:GT.CS6460.BuddyUp.DomainDto.QuestionnaireUpdateRequest.QuestionIds">
+            <summary>
+            List of existing questions to be Deleted
+            </summary>
+        </member>
+        <member name="P:GT.CS6460.BuddyUp.DomainDto.QuestionnaireUpdateRequest.Questions">
+            <summary>
+            List of new Questions
+            </summary>
+        </member>
+        <member name="P:GT.CS6460.BuddyUp.DomainDto.QuestionnaireGetResponse.QuestionnaireCode">
+            <summary>
+            Questionnaire Code
+            </summary>
+        </member>
+        <member name="P:GT.CS6460.BuddyUp.DomainDto.QuestionnaireGetResponse.Questions">
+            <summary>
+            List of new Questions
+            </summary>
+        </member>
+        <member name="T:GT.CS6460.BuddyUp.DomainDto.ResetPasswordRequest">
+            <summary>
+            Request to reset the password
+            </summary>
+        </member>
+        <member name="P:GT.CS6460.BuddyUp.DomainDto.ResetPasswordRequest.email">
+            <summary>
+            Email Id of the user
+            </summary>
+        </member>
+        <member name="P:GT.CS6460.BuddyUp.DomainDto.ResetPasswordRequest.currentPassword">
+            <summary>
+            Current Plain text password of the user
+            </summary>
+        </member>
+        <member name="P:GT.CS6460.BuddyUp.DomainDto.ResetPasswordRequest.newPassword">
+            <summary>
+            New Plain text password of the user
+            </summary>
+        </member>
+        <member name="T:GT.CS6460.BuddyUp.DomainDto.Role">
+            <summary>
+            Role Dto
+            </summary>
+        </member>
+        <member name="P:GT.CS6460.BuddyUp.DomainDto.Role.roleCode">
+            <summary>
+            Role Code
+            </summary>
+        </member>
+        <member name="P:GT.CS6460.BuddyUp.DomainDto.Role.roleDescription">
+            <summary>
+            Role Description
+            </summary>
+        </member>
+        <member name="T:GT.CS6460.BuddyUp.DomainDto.UserPrincipal">
+            <summary>
+            Token Response after authentication
+            </summary>
+        </member>
+        <member name="P:GT.CS6460.BuddyUp.DomainDto.UserPrincipal.token">
+            <summary>
+            Token with the prefix "GTToken "
+            </summary>
+        </member>
+        <member name="P:GT.CS6460.BuddyUp.DomainDto.UserPrincipal.maxSessionTime">
+            <summary>
+            Maximum Session Time in minutes
+            </summary>
+        </member>
+        <member name="P:GT.CS6460.BuddyUp.DomainDto.UserPrincipal.remainingTime">
+            <summary>
+            Remaining time in the session
+            </summary>
+        </member>
+        <member name="P:GT.CS6460.BuddyUp.DomainDto.UserPrincipal.passwordExpired">
+            <summary>
+            Has Password expired
+            </summary>
+        </member>
+        <member name="P:GT.CS6460.BuddyUp.DomainDto.UserPrincipal.message">
+            <summary>
+            Message to the user
+            </summary>
+        </member>
+        <member name="P:GT.CS6460.BuddyUp.DomainDto.UserPrincipal.user">
+            <summary>
+            User Details 
+            </summary>
+        </member>
+        <member name="P:GT.CS6460.BuddyUp.DomainDto.UserPrincipal.Identity">
+            <summary>
+            User Identity
+            </summary>
+        </member>
+        <member name="T:GT.CS6460.BuddyUp.DomainDto.UserAddRequest">
+            <summary>
+            Request DTO to add user
+            </summary>
+        </member>
+        <member name="P:GT.CS6460.BuddyUp.DomainDto.UserAddRequest.emailId">
+            <summary>
+            Email Id of the user
+            </summary>
+        </member>
+        <member name="P:GT.CS6460.BuddyUp.DomainDto.UserAddRequest.password">
+            <summary>
+            Password of the user
+            </summary>
+        </member>
+        <member name="P:GT.CS6460.BuddyUp.DomainDto.UserAddRequest.securityQuestion">
+            <summary>
+            Security Question
+            </summary>
+        </member>
+        <member name="P:GT.CS6460.BuddyUp.DomainDto.UserAddRequest.answer">
+            <summary>
+            Answer to security question
+            </summary>
+        </member>
+        <member name="P:GT.CS6460.BuddyUp.DomainDto.UserAddRequest.firstName">
+            <summary>
+            First Name of user
+            </summary>
+        </member>
+        <member name="P:GT.CS6460.BuddyUp.DomainDto.UserAddRequest.lastName">
+            <summary>
+            Last name of user
+            </summary>
+        </member>
+        <member name="P:GT.CS6460.BuddyUp.DomainDto.UserAddRequest.isAdmin">
+            <summary>
+            Is user an admin
+            </summary>
+        </member>
+        <member name="P:GT.CS6460.BuddyUp.DomainDto.UserAddRequest.RoleCode">
+            <summary>
+            Role Code of User
+            </summary>
+        </member>
+        <member name="T:GT.CS6460.BuddyUp.DomainDto.UserGetResponse">
+            <summary>
+            Response when Get User API is called
+            </summary>
+        </member>
+        <member name="P:GT.CS6460.BuddyUp.DomainDto.UserGetResponse.emailId">
+            <summary>
+            Email Id of user
+            </summary>
+        </member>
+        <member name="P:GT.CS6460.BuddyUp.DomainDto.UserGetResponse.firstName">
+            <summary>
+            First Name of User
+            </summary>
+        </member>
+        <member name="P:GT.CS6460.BuddyUp.DomainDto.UserGetResponse.lastName">
+            <summary>
+            Last Name of User
+            </summary>
+        </member>
+        <member name="P:GT.CS6460.BuddyUp.DomainDto.UserGetResponse.isAdmin">
+            <summary>
+            Indicates if user is admin
+            </summary>
+        </member>
+        <member name="P:GT.CS6460.BuddyUp.DomainDto.UserGetResponse.UserCourseDetails">
+            <summary>
+            Course details of user
+            </summary>
+        </member>
+        <member name="T:GT.CS6460.BuddyUp.DomainDto.UserCourseDetail">
+            <summary>
+            Course Details of User
+            </summary>
+        </member>
+        <member name="P:GT.CS6460.BuddyUp.DomainDto.UserCourseDetail.courseCode">
+            <summary>
+            Code of course
+            </summary>
+        </member>
+        <member name="P:GT.CS6460.BuddyUp.DomainDto.UserCourseDetail.CourseName">
+            <summary>
+            Name of Course
+            </summary>
+        </member>
+        <member name="P:GT.CS6460.BuddyUp.DomainDto.UserCourseDetail.CourseDescription">
+            <summary>
+            Course Description
+            </summary>
+        </member>
+        <member name="P:GT.CS6460.BuddyUp.DomainDto.UserCourseDetail.RoleCode">
+            <summary>
+            Role of user in the course
+            </summary>
+        </member>
+        <member name="P:GT.CS6460.BuddyUp.DomainDto.UserCourseDetail.RoleDescription">
+            <summary>
+            Description of the role
+            </summary>
+        </member>
+        <member name="P:GT.CS6460.BuddyUp.DomainDto.UserCourseDetail.GroupCode">
+            <summary>
+            Group Code
+            </summary>
+        </member>
+        <member name="P:GT.CS6460.BuddyUp.DomainDto.UserCourseDetail.GroupName">
+            <summary>
+            Group Name
+            </summary>
+        </member>
+        <member name="P:GT.CS6460.BuddyUp.DomainDto.UserCourseDetail.Objective">
+            <summary>
+            Group Objective
+            </summary>
+        </member>
+        <member name="T:GT.CS6460.BuddyUp.DomainDto.UserUpdateRequest">
+            <summary>
+            Request DTO to update user
+            </summary>
+        </member>
+        <member name="P:GT.CS6460.BuddyUp.DomainDto.UserUpdateRequest.emailId">
+            <summary>
+            Email Id of the user to be updated
+            </summary>
+        </member>
+        <member name="P:GT.CS6460.BuddyUp.DomainDto.UserUpdateRequest.firstName">
+            <summary>
+            First Name of user
+            </summary>
+        </member>
+        <member name="P:GT.CS6460.BuddyUp.DomainDto.UserUpdateRequest.lastName">
+            <summary>
+            Last Name of the user
+            </summary>
+        </member>
+        <member name="P:GT.CS6460.BuddyUp.DomainDto.UserUpdateRequest.IsAdmin">
+            <summary>
+            Determines if user is an admin
+            </summary>
+        </member>
+        <member name="P:GT.CS6460.BuddyUp.DomainDto.UpdateUserCourse.emailId">
+            <summary>
+            Email Id of the user to be updated
+            </summary>
+        </member>
+        <member name="P:GT.CS6460.BuddyUp.DomainDto.UpdateUserCourse.courseCode">
+            <summary>
+            Code of course
+            </summary>
+        </member>
+        <member name="P:GT.CS6460.BuddyUp.DomainDto.UpdateUserCourse.RoleCode">
+            <summary>
+            Role of user in the course
+            </summary>
+        </member>
+        <member name="P:GT.CS6460.BuddyUp.DomainDto.UpdateUserGroup.emailId">
+            <summary>
+            Email Id of the user to be updated
+            </summary>
+        </member>
+        <member name="P:GT.CS6460.BuddyUp.DomainDto.UpdateUserGroup.courseCode">
+            <summary>
+            Code of course
+            </summary>
+        </member>
+        <member name="P:GT.CS6460.BuddyUp.DomainDto.UpdateUserGroup.GroupCode">
+            <summary>
+            Group Code
+            </summary>
+        </member>
+    </members>
+</doc>

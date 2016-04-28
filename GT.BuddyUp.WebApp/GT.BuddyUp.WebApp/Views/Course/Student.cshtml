@@ -1,0 +1,65 @@
+﻿@model GT.BuddyUp.WebApp.Models.StudentDashboardModel
+@{
+    ViewBag.Title = "Student";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Hello @User.Identity.Name</h2>
+<div class="row">
+    <div class="col-md-12">
+        <section id="studentCourseForm">
+            @using (Html.BeginForm("Student", "Course", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                <h3>Registered Course</h3>
+                <div id="RegisteredCourse">
+                    @if (Model.RegisteredCourseDropDown.Count == 0)
+                    {
+                        <h4>You are not registered in any course. Please register for a course.</h4>
+                    }
+                    else
+                    {
+                        <h4>Please select a course to buddy-up.</h4>
+                        <div class="form-group">
+                            @Html.Label("Registered Courses", new { @class = "col-md-2 control-label" })
+                            <div class="col-md-10">
+                                @Html.DropDownListFor(m => m.selectedRegisteredCourse, new SelectList(Model.RegisteredCourseDropDown))
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="submit" value="Buddy-Up" class="btn btn-info" />
+                            </div>
+                        </div>
+                    }
+                </div>
+            }
+            @using (Html.BeginForm("Register", "Course", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                <hr />
+                <h3>Available Course to Register</h3>
+                <div id="NewRegistration">
+                    @if(Model.AllCourseDropDown != null && Model.AllCourseDropDown.Count > 0)
+                    {
+                        <h4>Please select a course to register.</h4>
+                        <div class="form-group">
+                            @Html.Label("Courses to Register", new { @class = "col-md-2 control-label" })
+                            <div class="col-md-10">
+                                @Html.DropDownListFor(m => m.selectedCourse, new SelectList(Model.AllCourseDropDown))
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="submit" value="Register" class="btn btn-info" />
+                            </div>
+                        </div>
+                    }
+                    else
+                    {
+                        <h4>You are not added to roaster of any other active course. Please contact your instructor to add you to course.</h4>
+                    }
+                </div>
+            }
+            </section>
+        </div>
+    </div>
+

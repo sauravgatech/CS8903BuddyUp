@@ -1,0 +1,5 @@
+C:\Saurav\GT\8903 - Special Problem\FinalCode\BuddyUp\Final\GT.BuddyUp.WebApp\GT.BuddyUp.Platform.Common\bin\Debug\GT.BuddyUp.Platform.Common.dll
+C:\Saurav\GT\8903 - Special Problem\FinalCode\BuddyUp\Final\GT.BuddyUp.WebApp\GT.BuddyUp.Platform.Common\bin\Debug\GT.BuddyUp.Platform.Common.pdb
+C:\Saurav\GT\8903 - Special Problem\FinalCode\BuddyUp\Final\GT.BuddyUp.WebApp\GT.BuddyUp.Platform.Common\obj\Debug\GT.BuddyUp.Platform.Common.csprojResolveAssemblyReference.cache
+C:\Saurav\GT\8903 - Special Problem\FinalCode\BuddyUp\Final\GT.BuddyUp.WebApp\GT.BuddyUp.Platform.Common\obj\Debug\GT.BuddyUp.Platform.Common.dll
+C:\Saurav\GT\8903 - Special Problem\FinalCode\BuddyUp\Final\GT.BuddyUp.WebApp\GT.BuddyUp.Platform.Common\obj\Debug\GT.BuddyUp.Platform.Common.pdb

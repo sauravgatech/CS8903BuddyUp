@@ -1,0 +1,141 @@
+﻿@model GT.BuddyUp.WebApp.Models.GroupListModel
+@{
+    ViewBag.Title = "GroupSummary";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Hello @User.Identity.Name</h2>
+<hr />
+@if(Model.registeredGroup != null)
+{
+    <h3>Enrolled Group</h3>
+    <div class="row">
+        <div class="col-lg-12">
+            <h4>@Model.registeredGroup.GroupName</h4>
+            <br />
+            <span><i>@Model.registeredGroup.TimeZone</i></span>
+            <br />
+            <span>@Model.registeredGroup.Objective</span>
+            <button type="button" class="btn btn-info pull-right" onclick="@("window.location.href='" + @Url.Action("GroupDetail", "Group", new { groupCode = Model.registeredGroup.GroupCode }) + "'") ;">Go to Group page  <span class="glyphicon glyphicon-forward"></span></button>
+        </div>
+    </div>
+    <hr />
+}
+@if(Model.SuggestedGroups == null || Model.SuggestedGroups.Count == 0)
+{
+    if(Model.AllGroups == null || Model.AllGroups.Count == 0)
+    {
+        if (Model.registeredGroup == null)
+        { 
+            <h4>Whoa! Looks like you among the first ones here! There are no group created for this course. You can log back later or go ahead and create your own group.</h4>
+            <button type="button" class="btn btn-info" onclick="@("window.location.href='" + @Url.Action("Create", "Group", new { courseCode = Model.CourseCode }) + "'") ;">Create a Group  <span class="glyphicon glyphicon-gift"></span></button>
+        }
+    }
+    else
+    {
+        if (Model.registeredGroup == null)
+        {
+            <h4>Phew! Looks like you are an early bird! There are no group suggestions for you. You can log back later or go ahead and create your own group.</h4>
+            <button type="button" class="btn btn-info" onclick="@("window.location.href='" + @Url.Action("Create", "Group", new { courseCode = Model.CourseCode }) + "'") ;">Create a Group  <span class="glyphicon glyphicon-gift"></span></button>
+        }
+    }
+}
+else
+{ 
+    <h4>Below are some suggested Groups for you.</h4>    
+    int indexSize = Model.SuggestedGroups.Count;
+    for (int i = 0; i < indexSize; i = i + 3)
+    {
+        <div class="row">
+            @if (i < indexSize)
+            {
+                <div class="col-lg-4">
+                    <h4>@Model.SuggestedGroups.ElementAt(i).GroupName</h4>
+                    <br />
+                    <span><i>@Model.SuggestedGroups.ElementAt(i).TimeZone</i></span>
+                    <br />
+                    <span>@Model.SuggestedGroups.ElementAt(i).Objective</span>
+                    <button type="button" class="btn btn-info pull-right" onclick="@("window.location.href='" + @Url.Action("GroupDetail", "Group", new { groupCode = Model.SuggestedGroups.ElementAt(i).GroupCode }) + "'") ;"><span class="glyphicon glyphicon-eye-open"></span>  View Group</button>
+                </div>
+            }
+            @if (i + 1 < indexSize)
+            {
+                <div class="col-lg-4">
+                    <h4>@Model.SuggestedGroups.ElementAt(i+1).GroupName</h4>
+                    <br />
+                    <span><i>@Model.SuggestedGroups.ElementAt(i+1).TimeZone</i></span>
+                    <br />
+                    <span>@Model.SuggestedGroups.ElementAt(i+1).Objective</span>
+                    <button type="button" class="btn btn-info pull-right" onclick="@("window.location.href='" + @Url.Action("GroupDetail", "Group", new { groupCode = Model.SuggestedGroups.ElementAt(i+1).GroupCode }) + "'") ;"><span class="glyphicon glyphicon-eye-open"></span>  View Group</button>
+                </div>
+            }
+            @if (i + 2 < indexSize)
+            {
+                <div class="col-lg-4">
+                    <h4>@Model.SuggestedGroups.ElementAt(i+2).GroupName</h4>
+                    <br />
+                    <span><i>@Model.SuggestedGroups.ElementAt(i+2).TimeZone</i></span>
+                    <br />
+                    <span>@Model.SuggestedGroups.ElementAt(i+2).Objective</span>
+                    <button type="button" class="btn btn-info pull-right" onclick="@("window.location.href='" + @Url.Action("GroupDetail", "Group", new { groupCode = Model.SuggestedGroups.ElementAt(i+2).GroupCode }) + "'") ;"><span class="glyphicon glyphicon-eye-open"></span>  View Group</button>
+                </div>
+            }
+        </div>
+        <hr />
+    }
+    
+}
+@if(Model.AllGroups != null && Model.AllGroups.Count != 0)
+{
+   
+    <h3><u>All Groups for the course are listed below</u></h3>
+    int indexSize = Model.AllGroups.Count;
+    for (int i = 0; i < indexSize; i = i + 3)
+    {
+        <div class="row">
+            @if (i < indexSize)
+            {
+                <div class="col-lg-4">
+                    <h4>@Model.AllGroups.ElementAt(i).GroupName</h4>
+                    <br />
+                    <span><i>@Model.AllGroups.ElementAt(i).TimeZone</i></span>
+                    <br />
+                    <span>@Model.AllGroups.ElementAt(i).Objective</span>
+                    <button type="button" class="btn btn-info pull-right" onclick="@("window.location.href='" + @Url.Action("GroupDetail", "Group", new { groupCode = Model.AllGroups.ElementAt(i).GroupCode }) + "'") ;"><span class="glyphicon glyphicon-eye-open"></span>  View Group</button>
+                </div>
+            }
+            @if (i + 1 < indexSize)
+            {
+                <div class="col-lg-4">
+                    <h4>@Model.AllGroups.ElementAt(i + 1).GroupName</h4>
+                    <br />
+                    <span><i>@Model.AllGroups.ElementAt(i + 1).TimeZone</i></span>
+                    <br />
+                    <span>@Model.AllGroups.ElementAt(i + 1).Objective</span>
+                    <button type="button" class="btn btn-info pull-right" onclick="@("window.location.href='" + @Url.Action("GroupDetail", "Group", new { groupCode = Model.AllGroups.ElementAt(i+1).GroupCode }) + "'") ;"><span class="glyphicon glyphicon-eye-open"></span>  View Group</button>
+                </div>
+            }
+            @if (i + 2 < indexSize)
+            {
+                <div class="col-lg-4">
+                    <h4>@Model.AllGroups.ElementAt(i + 2).GroupName</h4>
+                    <br />
+                    <span><i>@Model.AllGroups.ElementAt(i + 2).TimeZone</i></span>
+                    <br />
+                    <span>@Model.AllGroups.ElementAt(i + 2).Objective</span>
+                    <button type="button" class="btn btn-info pull-right" onclick="@("window.location.href='" + @Url.Action("GroupDetail", "Group", new { groupCode = Model.AllGroups.ElementAt(i+2).GroupCode }) + "'") ;"><span class="glyphicon glyphicon-eye-open"></span>  View Group</button>
+                </div>
+            }
+        </div>
+        <hr />
+    }
+    if(Model.registeredGroup == null)
+    { 
+        <h3>Didn't find a suitable group?</h3> <button type="button" class="btn btn-info" onclick="@("window.location.href='" + @Url.Action("Create", "Group", new { courseCode = Model.CourseCode }) + "'") ;">Create a Group  <span class="glyphicon glyphicon-gift"></span></button>
+    }
+}
+<hr />
+@if (User.IsInRole("Student"))
+{
+    <button type="button" class="btn btn-info pull-right" onclick="@("window.location.href='" + @Url.Action("Student", "Course") + "'") ;">Change Course</button>
+}

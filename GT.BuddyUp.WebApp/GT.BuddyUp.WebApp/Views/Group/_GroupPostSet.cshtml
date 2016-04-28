@@ -1,0 +1,8 @@
+﻿@model IEnumerable<GT.BuddyUp.WebApp.Models.PostModel>
+<div id="postRows">
+    @foreach (var pst in Model)
+    {
+        Html.RenderPartial("_GroupPost", pst);
+    }
+</div>
+@Html.ActionLink("Add new post", "_GroupPost", null, new { id = "addNewPost" })

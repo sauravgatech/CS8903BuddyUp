@@ -1,0 +1,17 @@
+﻿@model GT.BuddyUp.WebApp.Models.RoasterID
+<div class="questionRow">
+    @using (Html.BeginCollectionItem("roaster"))
+    {
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <div class="checkbox">
+                    @Html.CheckBoxFor(m => m.isMarkedForDeletion)
+                    @Model.gtId
+                    @*@Html.DisplayTextFor(m => m.gtId, new { @class = "control-label" })*@
+                    @Html.HiddenFor(m => m.isMarkedForDeletion)
+                    @Html.HiddenFor(m => m.gtId)
+                </div>                
+            </div>
+        </div>
+    }
+    </div>

@@ -1,0 +1,44 @@
+﻿@model GT.BuddyUp.WebApp.Models.ModifyRoasterModel
+@{
+    ViewBag.Title = "ModifyRoaster";
+}
+
+<h2>@Model.courseCode - @Model.courseName</h2>
+<h4><span style="color:red">@Model.message</span></h4>
+<div class="row">
+    <div class="col-md-12">
+        <section id="modifyRoasterForm">
+                @using (Html.BeginForm("ModifyRoaster", "Course", new { ModifyRoasterModel = Model }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                {
+                    <hr />
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.newRoasterIds, new { @class = "col-md-2 control-label" })
+                        <div class="col-md-10">
+                            <h5>Comma Separated List of GTIDs to add to roaster</h5>
+                            @Html.TextAreaFor(m => m.newRoasterIds, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.newRoasterIds, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    @Html.HiddenFor(x => x.courseCode)
+                    <hr />
+                    if(Model.roasterIds == null)
+                    {
+                        <h4>There are no IDs added to Roaster. Please use the textbox above to add GTIDs to course roaster.</h4>
+                    }
+                    else
+                    {
+                        <div class="form-group">
+                            @Html.Partial("_CourseRoaster", Model.roasterIds)
+                        </div>
+                    }
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Update Roaster" class="btn btn-info" />
+                        </div>
+                    </div>
+                    }
+</section>
+        </div>
+    </div>
+

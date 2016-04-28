@@ -1,0 +1,152 @@
+﻿@model GT.BuddyUp.WebApp.Models.CreateCourseModel
+@{
+    ViewBag.Title = "Create a Course";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h4>Hello @User.Identity.Name</h4>
+<hr />
+<h2>@ViewBag.Title</h2>
+<div class="row">
+    <div class="col-md-12">
+        <section id="createCourseForm">
+            @using (Html.BeginForm("Create", "Course", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(m => m.CourseCode, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.CourseCode, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.CourseCode, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.CourseName, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.CourseName, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.CourseName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Term, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.DropDownListFor(m => m.Term, new SelectList(Model.AvailableTerms), new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Term, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.CourseDescription, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextAreaFor(m => m.CourseDescription, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.CourseDescription, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.GroupType, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.DropDownListFor(m => m.GroupType, new SelectList(new List<string>() { "Study Group", "Project Group (Open Projects)", "Project Group (Closed Projects)" }), new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.GroupType, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.GroupSize, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.DropDownListFor(m => m.GroupSize, new SelectList(new List<int>() { 2, 3, 4, 5, 6, 7, 8, 9, 10 }), new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.GroupSize, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.DesiredSkillSets, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextAreaFor(m => m.DesiredSkillSets, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.DesiredSkillSets, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                @*<div class="form-group">
+                    @Html.LabelFor(m => m.DesiredSkillSets, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.Partial("_CourseSkillSet", Model.DesiredSkillSets)
+                    </div>
+                </div>*@
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <div class="checkbox">
+                            @Html.CheckBoxFor(m => m.PreferSimiliarSkillSet)
+                            @Html.LabelFor(m => m.PreferSimiliarSkillSet, new { @class = "control-label" })
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <div class="checkbox">
+                            @Html.CheckBoxFor(m => m.GenerateIntelligentQuestionnaire)
+                            @Html.LabelFor(m => m.GenerateIntelligentQuestionnaire, new { @class = "control-label" })
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Users, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        <h4>If you know that there are registered user, in the portal, and you would like to add them to the portal, you can do it now. You can always add them to class roaster later and ask the user to register for the course.</h4>
+                        @Html.Partial("_CourseUserDisplay", Model.Users)
+                        </div>
+                    </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Questions, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.Partial("_CourseQuestionSet", Model.Questions)
+                        </div>
+                    </div>
+                 <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Create Course" class="btn btn-info" />
+                    </div>
+                </div>
+            }
+        </section>
+    </div>
+</div>
+
+@section Scripts{
+    @Scripts.Render("~/bundles/jqueryui")
+    <script>
+        $("#addItem").click(function () {
+            $.ajax({
+                url: this.href,
+                cache: false,
+                success: function (html) { $("#editorRows").append(html); }
+            });
+            return false;
+        });
+        
+        $("#addSkill").click(function () {
+            $.ajax({
+                url: this.href,
+                cache: false,
+                success: function (html) { $("#skillRows").append(html); }
+            });
+            return false;
+        });
+
+        $("#addQuestion").click(function () {
+            $.ajax({
+                url: this.href,
+                cache: false,
+                success: function (html) { $("#questionRows").append(html); }
+            });
+            return false;
+        });
+        $('body').on('click', '.deleteRow', function () {
+            $(this).parents("div.editorRow:first").remove();
+            return false;
+        });
+        $('body').on('click', '.deleteSkill', function () {
+            $(this).parents("div.skillRow:first").remove();
+            return false;
+        });
+        $('body').on('click', '.deleteQuestion', function () {
+            $(this).parents("div.questionRow:first").remove();
+            return false;
+        });
+    </script>
+}

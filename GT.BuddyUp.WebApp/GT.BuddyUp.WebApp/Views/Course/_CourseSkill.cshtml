@@ -1,0 +1,27 @@
+﻿@model GT.BuddyUp.WebApp.Models.Skill
+<div class="skillRow">
+    @using (Html.BeginCollectionItem("skills"))
+    {
+        <table>
+            <tr>
+                <td>
+                    <div class="input-group">
+                        @Html.LabelFor(model => model.skill, htmlAttributes: new { @class = "input-group-addon" })
+                        @Html.EditorFor(model => model.skill, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.skill, "", new { @class = "text-danger" })
+                    </div>
+                </td>
+                <td>
+                    <div class="input-group">
+                        @Html.LabelFor(model => model.requiredSkillLevel, htmlAttributes: new { @class = "input-group-addon" })
+                        @Html.EnumDropDownListFor(model => model.requiredSkillLevel, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.requiredSkillLevel, "", new { @class = "text-danger" })
+                    </div>
+                </td>
+                <td>
+                    <a href="#" class="deleteSkill">delete</a>
+                </td>
+            </tr>
+        </table>
+    }
+</div>

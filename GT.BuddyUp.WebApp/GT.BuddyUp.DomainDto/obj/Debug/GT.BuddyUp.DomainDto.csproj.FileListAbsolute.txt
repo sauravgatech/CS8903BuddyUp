@@ -1,0 +1,6 @@
+C:\Saurav\GT\8903 - Special Problem\FinalCode\BuddyUp\Final\GT.BuddyUp.WebApp\GT.BuddyUp.DomainDto\bin\Debug\GT.BuddyUp.DomainDto.xml
+C:\Saurav\GT\8903 - Special Problem\FinalCode\BuddyUp\Final\GT.BuddyUp.WebApp\GT.BuddyUp.DomainDto\bin\Debug\GT.BuddyUp.DomainDto.dll
+C:\Saurav\GT\8903 - Special Problem\FinalCode\BuddyUp\Final\GT.BuddyUp.WebApp\GT.BuddyUp.DomainDto\bin\Debug\GT.BuddyUp.DomainDto.pdb
+C:\Saurav\GT\8903 - Special Problem\FinalCode\BuddyUp\Final\GT.BuddyUp.WebApp\GT.BuddyUp.DomainDto\obj\Debug\GT.BuddyUp.DomainDto.csprojResolveAssemblyReference.cache
+C:\Saurav\GT\8903 - Special Problem\FinalCode\BuddyUp\Final\GT.BuddyUp.WebApp\GT.BuddyUp.DomainDto\obj\Debug\GT.BuddyUp.DomainDto.dll
+C:\Saurav\GT\8903 - Special Problem\FinalCode\BuddyUp\Final\GT.BuddyUp.WebApp\GT.BuddyUp.DomainDto\obj\Debug\GT.BuddyUp.DomainDto.pdb

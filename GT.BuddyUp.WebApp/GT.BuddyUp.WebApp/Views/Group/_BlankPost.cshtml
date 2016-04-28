@@ -1,0 +1,36 @@
+﻿@model GT.BuddyUp.WebApp.Models.PostModel
+ <div class="postRow">
+    @*@using (Html.BeginCollectionItem("posts"))
+        {
+            Html.TextAreaFor(m => m.PostText, new { htmlAttributes = new { @class = "form-control" } });
+        }*@
+
+    @using (Html.BeginCollectionItem("posts"))
+    {
+        <article class="row">
+            <div class="col-md-2 col-sm-2 hidden-xs">
+                <figure class="thumbnail">
+                    <img class="img-responsive" src="http://www.keita-gaming.com/assets/profile/default-avatar-c5d8ec086224cb6fc4e395f4ba3018c2.jpg" />
+                    <figcaption class="text-center"><b>@User.Identity.Name</b></figcaption>
+                </figure>
+            </div>
+            <div class="col-md-10 col-sm-10">
+                <div class="panel panel-default arrow left">
+                    <div class="panel-body">
+                        <header class="text-left">
+                            <div class="comment-user"><i class="fa fa-user"></i> <b>@User.Identity.Name</b></div>
+                            <time class="comment-date" datetime="12-10-2015 01:05"><i class="fa fa-clock-o">@DateTime.UtcNow.ToString("MM-dd-yyyy H:mm:ss")</i></time>
+                        </header>
+                        <div class="comment-post">
+                            <p>
+                                @Html.TextAreaFor(m => m.PostText, new { htmlAttributes = new { @class = "form-control" } });
+                            </p>
+                        </div>
+                        <p class="text-right"><a href="#" class="btn btn-default btn-sm"><i class="fa fa-reply"></i> reply</a></p>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+    }
+</div>

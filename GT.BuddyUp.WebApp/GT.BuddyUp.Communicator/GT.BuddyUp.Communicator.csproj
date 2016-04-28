@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BCD12002-5457-45B8-82E4-114AC71C0CB2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GT.BuddyUp.Communicator</RootNamespace>
+    <AssemblyName>GT.BuddyUp.Communicator</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CourseCommunicator.cs" />
+    <Compile Include="CourseUserCommunicator.cs" />
+    <Compile Include="GroupCommunicator.cs" />
+    <Compile Include="PostCommunicator.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QuestionnaireCommunicator.cs" />
+    <Compile Include="UserCommunicator.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GT.BuddyUp.DomainDto\GT.BuddyUp.DomainDto.csproj">
+      <Project>{e78262fe-4a14-468e-a300-05ee5c071a75}</Project>
+      <Name>GT.BuddyUp.DomainDto</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GT.BuddyUp.DomainModel\GT.BuddyUp.DomainModel.csproj">
+      <Project>{33cc0888-c67e-4b88-86c1-94c1f6a43c94}</Project>
+      <Name>GT.BuddyUp.DomainModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GT.BuddyUp.EntityModel\GT.BuddyUp.EntityModel.csproj">
+      <Project>{11b42a4b-ae51-438f-9635-a46016bcc3d0}</Project>
+      <Name>GT.BuddyUp.EntityModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GT.BuddyUp.Platform.Common\GT.BuddyUp.Platform.Common.csproj">
+      <Project>{aba4c97c-740c-46be-acf0-a4f13b648ad9}</Project>
+      <Name>GT.BuddyUp.Platform.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GT.BuddyUp.Platform.Repository\GT.BuddyUp.Platform.Repository.csproj">
+      <Project>{6e7dad31-7636-41b7-8156-329f1be4c887}</Project>
+      <Name>GT.BuddyUp.Platform.Repository</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
